@@ -23,21 +23,23 @@ public class Empresa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(name = "nome_fantasia", nullable = false, length = 80)
 	private String nomeFantasia;
 	
+
 	@Column(name = "razao_social", nullable = false, length = 120)
-	private String razaosocial;
+	private String razaoSocial;
 	
 
 	@Column(nullable = false, length = 18)
 	private String cnpj;
 	
-
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "data_fundacao")
 	private Date dataFundacao;
@@ -51,7 +53,6 @@ public class Empresa implements Serializable {
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false, length = 30)
 	private TipoEmpresa tipo;
-	
 	
 	
 	public Long getId() {
@@ -74,13 +75,13 @@ public class Empresa implements Serializable {
 	}
 
 
-	public String getRazaosocial() {
-		return razaosocial;
+	public String getRazaoSocial() {
+		return razaoSocial;
 	}
 
 
-	public void setRazaosocial(String razaosocial) {
-		this.razaosocial = razaosocial;
+	public void setRazaoSocial(String razaoSocial) {
+		this.razaoSocial = razaoSocial;
 	}
 
 
@@ -113,7 +114,18 @@ public class Empresa implements Serializable {
 		this.ramoAtividade = ramoAtividade;
 	}
 
+	
+	
+	public TipoEmpresa getTipo() {
+		return tipo;
+	}
 
+
+	public void setTipo(TipoEmpresa tipo) {
+		this.tipo = tipo;
+	}
+
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

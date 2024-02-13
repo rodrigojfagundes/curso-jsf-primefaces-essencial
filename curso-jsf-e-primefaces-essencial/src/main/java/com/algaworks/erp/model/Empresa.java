@@ -16,12 +16,12 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
 @Entity
 @Table(name = "empresa")
 public class Empresa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,7 +48,6 @@ public class Empresa implements Serializable {
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false, length = 30)
 	private TipoEmpresa tipo;
-	
 	
 	public Long getId() {
 		return id;
@@ -119,6 +118,7 @@ public class Empresa implements Serializable {
 	public void setTipo(TipoEmpresa tipo) {
 		this.tipo = tipo;
 	}
+
 	
 	@Override
 	public int hashCode() {
@@ -146,6 +146,10 @@ public class Empresa implements Serializable {
 		return true;
 	}
 
+	
+	//criando o TOSTRING q serve para converter o valor do ID para STRING para
+	//ficar mais facil de visualizar a partir de outra classe/entidade
+	//
 	@Override
 	public String toString() {
 		return "Empresa [id=" + id + "]";

@@ -11,7 +11,7 @@ import javax.persistence.Persistence;
 
 @ApplicationScoped
 public class EntityManagerProducer {
-	
+
 	private EntityManagerFactory factory;
 	
 	
@@ -20,13 +20,11 @@ public class EntityManagerProducer {
 		
 	}
 	
-	
 	@Produces
 	@RequestScoped
 	public EntityManager createEntityManager() {
 		return this.factory.createEntityManager();
 	}
-	
 	
 	
 	public void closeEntityManager(@Disposes EntityManager manager) {

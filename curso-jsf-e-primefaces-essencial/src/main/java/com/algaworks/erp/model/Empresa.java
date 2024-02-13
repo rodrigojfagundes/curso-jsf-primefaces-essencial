@@ -31,14 +31,12 @@ public class Empresa implements Serializable {
 	@Column(name = "nome_fantasia", nullable = false, length = 80)
 	private String nomeFantasia;
 	
-
 	@Column(name = "razao_social", nullable = false, length = 120)
 	private String razaoSocial;
 	
 
 	@Column(nullable = false, length = 18)
 	private String cnpj;
-	
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "data_fundacao")
@@ -49,12 +47,11 @@ public class Empresa implements Serializable {
 	@JoinColumn(name = "ramo_atividade_id", nullable = false)
 	private RamoAtividade ramoAtividade;
 	
-
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false, length = 30)
 	private TipoEmpresa tipo;
 	
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -125,7 +122,7 @@ public class Empresa implements Serializable {
 		this.tipo = tipo;
 	}
 
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

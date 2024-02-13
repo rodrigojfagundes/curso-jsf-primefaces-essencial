@@ -14,21 +14,19 @@ import com.algaworks.erp.model.TipoEmpresa;
 public class CamadaPersistencia {
 	
 	public static void main(String[] args) {
-
+		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("AlgaWorksPU");
 		
 		EntityManager em = emf.createEntityManager();
-		
 
 		em.getTransaction().begin();
-
+		
 		RamoAtividades ramoAtividades = new RamoAtividades(em);
 		Empresas empresas = new Empresas(em);
 		
 		List<RamoAtividade> listaDeRamoAtividades = ramoAtividades.pesquisar("");
 		List<Empresa> listaDeEmpresas = empresas.pesquisar("");
 		System.out.println(listaDeEmpresas);
-		
 		
 		Empresa empresa = new Empresa();
 		empresa.setNomeFantasia("Joao da Silva");
@@ -42,6 +40,7 @@ public class CamadaPersistencia {
 		
 		em.getTransaction().commit();
 		
+			
 		List<Empresa> listaDeEmpresas2 = empresas.pesquisar("");
 		System.out.print(listaDeEmpresas2);
 		

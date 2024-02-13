@@ -16,6 +16,7 @@ public class RelatorioServlet extends HttpServlet {
 	@Inject
 	private RelatorioService relatorioService;
 	
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.getWriter().println(relatorioService.totalPedidosMesAtual());

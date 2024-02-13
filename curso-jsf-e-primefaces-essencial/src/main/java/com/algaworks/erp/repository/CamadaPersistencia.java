@@ -24,7 +24,6 @@ public class CamadaPersistencia {
 		RamoAtividades ramoAtividades = new RamoAtividades(em);
 		Empresas empresas = new Empresas(em);
 		
-
 		List<RamoAtividade> listaDeRamoAtividades = ramoAtividades.pesquisar("");
 		List<Empresa> listaDeEmpresas = empresas.pesquisar("");
 		System.out.println(listaDeEmpresas);
@@ -36,11 +35,13 @@ public class CamadaPersistencia {
 		empresa.setTipo(TipoEmpresa.MEI);
 		empresa.setDataFundacao(new Date());
 		empresa.setRamoAtividade(listaDeRamoAtividades.get(0));
-		
+
 		empresas.guardar(empresa);
 		
 		em.getTransaction().commit();
-				
+		
+		
+		
 		List<Empresa> listaDeEmpresas2 = empresas.pesquisar("");
 		System.out.print(listaDeEmpresas2);
 		

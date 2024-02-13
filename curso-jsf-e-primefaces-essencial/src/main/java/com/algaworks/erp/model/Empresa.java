@@ -23,7 +23,6 @@ public class Empresa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -41,6 +40,7 @@ public class Empresa implements Serializable {
 	@Column(name = "data_fundacao")
 	private Date dataFundacao;
 	
+	
 	@ManyToOne
 	@JoinColumn(name = "ramo_atividade_id", nullable = false)
 	private RamoAtividade ramoAtividade;
@@ -49,7 +49,7 @@ public class Empresa implements Serializable {
 	@Column(nullable = false, length = 30)
 	private TipoEmpresa tipo;
 	
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -151,6 +151,12 @@ public class Empresa implements Serializable {
 	@Override
 	public String toString() {
 		return "Empresa [id=" + id + "]";
-	}	
+	}
+
+	
+	
+	
+	
+	
 	
 }

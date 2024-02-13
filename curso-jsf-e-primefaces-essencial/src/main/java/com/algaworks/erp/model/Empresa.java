@@ -26,7 +26,7 @@ public class Empresa implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	
 	@Column(name = "nome_fantasia", nullable = false, length = 80)
 	private String nomeFantasia;
 	
@@ -49,7 +49,7 @@ public class Empresa implements Serializable {
 	@Column(nullable = false, length = 30)
 	private TipoEmpresa tipo;
 	
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -119,8 +119,7 @@ public class Empresa implements Serializable {
 	public void setTipo(TipoEmpresa tipo) {
 		this.tipo = tipo;
 	}
-
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -146,7 +145,6 @@ public class Empresa implements Serializable {
 			return false;
 		return true;
 	}
-
 
 	@Override
 	public String toString() {

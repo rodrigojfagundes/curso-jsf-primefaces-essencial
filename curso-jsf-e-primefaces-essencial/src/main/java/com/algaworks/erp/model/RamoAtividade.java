@@ -42,7 +42,6 @@ public class RamoAtividade implements Serializable {
 		this.descricao = descricao;
 	}
 	
-	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -59,6 +58,7 @@ public class RamoAtividade implements Serializable {
 		RamoAtividade other = (RamoAtividade) obj;
 		return Objects.equals(id, other.id);
 	}
+
 
 	@Override
 	public String toString() {

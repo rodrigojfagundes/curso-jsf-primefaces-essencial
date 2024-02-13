@@ -20,11 +20,10 @@ public class TransactionalInterceptor implements Serializable {
 
 	@Inject
 	private EntityManager manager;
-	
+
 	@AroundInvoke
 	public Object invoke(InvocationContext context) throws Exception {
 		EntityTransaction trx = manager.getTransaction();
-
 		boolean criador = false;
 	
 	try {
@@ -32,10 +31,9 @@ public class TransactionalInterceptor implements Serializable {
 			trx.begin();
 			trx.rollback();
 			trx.begin();
-
+			
 			criador = true;
 		}
-
 		return context.proceed();
 		
 	} catch (Exception e) {

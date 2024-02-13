@@ -20,12 +20,14 @@ public class EntityManagerProducer {
 		
 	}
 	
+
 	@Produces
 	@RequestScoped
 	public EntityManager createEntityManager() {
 		return this.factory.createEntityManager();
 	}
 	
+
 	public void closeEntityManager(@Disposes EntityManager manager) {
 		manager.close();
 	}

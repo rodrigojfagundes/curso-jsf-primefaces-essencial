@@ -20,6 +20,7 @@ public class Empresas implements Serializable {
 		
 	}
 	
+		
 	public Empresas(EntityManager manager) {
 		this.manager = manager;
 		
@@ -36,13 +37,14 @@ public class Empresas implements Serializable {
 		 
 	}
 	
+
 	public List<Empresa> pesquisar(String nome){
 		TypedQuery<Empresa> query = manager.createQuery("from Empresa where razaoSocial like :razaoSocial", Empresa.class);
 		query.setParameter("razaoSocial", nome + "%");
 		
 		return query.getResultList();
 	}
-	
+
 	public Empresa guardar(Empresa empresa) {
 		return manager.merge(empresa);
 		
@@ -53,5 +55,5 @@ public class Empresas implements Serializable {
 		empresa = porId(empresa.getId());
 
 		manager.remove(empresa);	
-	}
+	}	
 }

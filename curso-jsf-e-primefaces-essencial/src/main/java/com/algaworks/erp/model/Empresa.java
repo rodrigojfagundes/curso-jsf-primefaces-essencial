@@ -48,7 +48,6 @@ public class Empresa implements Serializable {
 	@Column(nullable = false, length = 30)
 	private TipoEmpresa tipo;
 	
-	
 	public Long getId() {
 		return id;
 	}
@@ -148,5 +147,5 @@ public class Empresa implements Serializable {
 	@Override
 	public String toString() {
 		return "Empresa [id=" + id + "]";
-	}
+	}	
 }

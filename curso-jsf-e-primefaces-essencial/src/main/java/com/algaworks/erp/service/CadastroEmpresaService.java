@@ -8,7 +8,6 @@ import com.algaworks.erp.model.Empresa;
 import com.algaworks.erp.repository.Empresas;
 import com.algaworks.erp.util.Transactional;
 
-
 public class CadastroEmpresaService implements Serializable {
 
 	private static final long serialVersionUID = 1L;

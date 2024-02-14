@@ -17,7 +17,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
 @Entity
 @Table(name = "empresa")
 public class Empresa implements Serializable {
@@ -27,13 +26,13 @@ public class Empresa implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	
 	@Column(name = "nome_fantasia", nullable = false, length = 80)
 	private String nomeFantasia;
-	
+
 	@Column(name = "razao_social", nullable = false, length = 120)
 	private String razaoSocial;
-
+	
 	@Column(nullable = false, length = 18)
 	private String cnpj;
 	
@@ -132,7 +131,6 @@ public class Empresa implements Serializable {
 		this.tipo = tipo;
 	}
 
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -158,7 +156,6 @@ public class Empresa implements Serializable {
 			return false;
 		return true;
 	}
-
 
 	@Override
 	public String toString() {

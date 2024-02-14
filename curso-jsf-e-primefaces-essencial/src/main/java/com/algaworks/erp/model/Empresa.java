@@ -23,11 +23,10 @@ public class Empresa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	
 	@Column(name = "nome_fantasia", nullable = false, length = 80)
 	private String nomeFantasia;
 	
@@ -120,7 +119,6 @@ public class Empresa implements Serializable {
 		this.tipo = tipo;
 	}
 
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -150,5 +148,5 @@ public class Empresa implements Serializable {
 	@Override
 	public String toString() {
 		return "Empresa [id=" + id + "]";
-	}	
+	}
 }

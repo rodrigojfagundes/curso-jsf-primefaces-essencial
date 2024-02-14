@@ -17,6 +17,7 @@ public class RamoAtividade implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -59,10 +60,11 @@ public class RamoAtividade implements Serializable {
 		return Objects.equals(id, other.id);
 	}
 
-	
+
 	@Override
 	public String toString() {
 		return "RamoAtividade [id=" + id + "]";
 	}
 	
+
 }

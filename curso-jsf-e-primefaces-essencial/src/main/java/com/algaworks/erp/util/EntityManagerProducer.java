@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+
 @ApplicationScoped
 public class EntityManagerProducer {
 	
@@ -15,10 +16,10 @@ public class EntityManagerProducer {
 	
 	
 	public EntityManagerProducer() {
-	
 		this.factory = Persistence.createEntityManagerFactory("AlgaWorksPU");
 		
 	}
+	
 	
 	@Produces
 	@RequestScoped
@@ -26,6 +27,7 @@ public class EntityManagerProducer {
 		return this.factory.createEntityManager();
 	}
 	
+
 	public void closeEntityManager(@Disposes EntityManager manager) {
 		manager.close();
 	}

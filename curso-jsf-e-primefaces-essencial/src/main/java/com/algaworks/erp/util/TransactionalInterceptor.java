@@ -10,6 +10,7 @@ import javax.interceptor.InvocationContext;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
+
 @Interceptor
 @Transactional
 @Priority(Interceptor.Priority.APPLICATION)
@@ -17,26 +18,24 @@ public class TransactionalInterceptor implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-
 	@Inject
 	private EntityManager manager;
 	
 	@AroundInvoke
 	public Object invoke(InvocationContext context) throws Exception {
 		EntityTransaction trx = manager.getTransaction();
-
-		boolean criador = false;
 	
+		boolean criador = false;
+
 	try {
 		if (!trx.isActive()) {
 			trx.begin();
-			trx.rollback();
+			trx.rollback();			
 			trx.begin();
 			
 			criador = true;
 		}
-		return context.proceed();
-		
+		return context.proceed();		
 	} catch (Exception e) {
 		if (trx != null && criador) {
 			trx.rollback();

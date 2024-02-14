@@ -23,5 +23,5 @@ public class RelatorioService {
 
 	public void setPedidos(Pedidos pedidos) {
 		this.pedidos = pedidos;
-	}	
+	}
 }

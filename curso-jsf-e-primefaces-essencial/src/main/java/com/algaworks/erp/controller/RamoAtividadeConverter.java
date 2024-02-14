@@ -11,7 +11,7 @@ import com.algaworks.erp.model.RamoAtividade;
 public class RamoAtividadeConverter implements Converter {
 	
 	private List<RamoAtividade> listaRamoAtividades;
-	
+
 	public RamoAtividadeConverter(List<RamoAtividade> listaRamoAtividades) {
 		this.listaRamoAtividades = listaRamoAtividades;
 	}
@@ -21,8 +21,9 @@ public class RamoAtividadeConverter implements Converter {
 		if (value == null) {
 			return null;
 		}
-		Long id = Long.valueOf(value);
 
+		Long id = Long.valueOf(value);
+		
 		for (RamoAtividade ramoAtividade: listaRamoAtividades) {
 			if (id.equals(ramoAtividade.getId())) {
 				return ramoAtividade;
@@ -30,15 +31,15 @@ public class RamoAtividadeConverter implements Converter {
 		}
 		return null;
 	}
-
+	
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
 		if(value == null) {
 			return null;
 		}
+		
 		RamoAtividade ramoAtividade = (RamoAtividade) value;
 		
 		return ramoAtividade.getId().toString();
-		
 	}
 }

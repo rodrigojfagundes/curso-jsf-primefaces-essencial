@@ -23,10 +23,11 @@ public class Empresa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(name = "nome_fantasia", nullable = false, length = 80)
 	private String nomeFantasia;
 	
@@ -47,18 +48,6 @@ public class Empresa implements Serializable {
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false, length = 30)
 	private TipoEmpresa tipo;
-	
-	@Column(precision =10, scale = 2)
-	private BigDecimal faturamento;
-	
-	public BigDecimal getFaturamento() {
-		return faturamento;
-	}
-	
-	
-	public void setFaturamento(BigDecimal faturamento) {
-		this.faturamento = faturamento;
-	}
 	
 	
 	public Long getId() {
@@ -131,7 +120,7 @@ public class Empresa implements Serializable {
 		this.tipo = tipo;
 	}
 
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -158,19 +147,8 @@ public class Empresa implements Serializable {
 		return true;
 	}
 
-	
-	//criando o TOSTRING q serve para converter o valor do ID para STRING para
-	//ficar mais facil de visualizar a partir de outra classe/entidade
-	//
 	@Override
 	public String toString() {
 		return "Empresa [id=" + id + "]";
-	}
-
-	
-	
-	
-	
-	
-	
+	}	
 }

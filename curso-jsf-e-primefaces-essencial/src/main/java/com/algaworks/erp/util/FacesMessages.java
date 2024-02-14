@@ -5,13 +5,15 @@ import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
+//criando a classe FACESMESSAGES
+//
 public class FacesMessages implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private void add(String msg, FacesMessage.Severity severity) {
+
 		FacesMessage facesMessage = new FacesMessage(msg);
 		facesMessage.setSeverity(severity);
-		
 		FacesContext.getCurrentInstance().addMessage(null, facesMessage);
 	}
 	

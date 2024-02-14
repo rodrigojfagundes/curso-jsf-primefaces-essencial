@@ -46,17 +46,15 @@ public class Empresas implements Serializable {
 		
 		return query.getResultList();
 	}
-	
+
 	public Empresa guardar(Empresa empresa) {
+
 		return manager.merge(empresa);
-		
 	}
-	
 
 	public void remover(Empresa empresa) {
 		empresa = porId(empresa.getId());
 
 		manager.remove(empresa);	
 	}
-	
 }

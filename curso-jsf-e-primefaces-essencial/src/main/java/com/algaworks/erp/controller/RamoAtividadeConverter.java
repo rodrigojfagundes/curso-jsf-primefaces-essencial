@@ -24,7 +24,7 @@ public class RamoAtividadeConverter implements Converter {
 		}
 
 		Long id = Long.valueOf(value);
-		
+
 		for (RamoAtividade ramoAtividade: listaRamoAtividades) {
 			if (id.equals(ramoAtividade.getId())) {
 				return ramoAtividade;
@@ -35,12 +35,13 @@ public class RamoAtividadeConverter implements Converter {
 
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
+		
 		if(value == null) {
 			return null;
 		}
+		
 		RamoAtividade ramoAtividade = (RamoAtividade) value;
-
+		
 		return ramoAtividade.getId().toString();
 	}
-
 }

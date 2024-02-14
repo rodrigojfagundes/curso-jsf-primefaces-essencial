@@ -15,13 +15,14 @@ import javax.persistence.Table;
 public class RamoAtividade implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(nullable = false, length = 80)
 	private String descricao;
+
 
 	public Long getId() {
 		return id;
@@ -38,6 +39,7 @@ public class RamoAtividade implements Serializable {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
 	
 	@Override
 	public int hashCode() {

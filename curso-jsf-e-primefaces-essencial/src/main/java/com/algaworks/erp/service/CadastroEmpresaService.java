@@ -15,7 +15,6 @@ public class CadastroEmpresaService implements Serializable {
 	@Inject
 	private Empresas empresas;
 	
-
 	@Transactional
 	public void salvar(Empresa empresa) {
 		empresas.guardar(empresa);
@@ -25,5 +24,6 @@ public class CadastroEmpresaService implements Serializable {
 	@Transactional
 	public void excluir(Empresa empresa) {
 		empresas.remover(empresa);
-	}	
+	}
+	
 }

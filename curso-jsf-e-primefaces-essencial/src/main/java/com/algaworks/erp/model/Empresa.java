@@ -22,6 +22,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.br.CNPJ;
 
+
 @Entity
 @Table(name = "empresa")
 public class Empresa implements Serializable {
@@ -35,7 +36,7 @@ public class Empresa implements Serializable {
 	@NotEmpty
 	@Column(name = "nome_fantasia", nullable = false, length = 80)
 	private String nomeFantasia;
-
+	
 	@NotEmpty
 	@Column(name = "razao_social", nullable = false, length = 120)
 	private String razaoSocial;
@@ -54,7 +55,7 @@ public class Empresa implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "ramo_atividade_id", nullable = false)
 	private RamoAtividade ramoAtividade;
-	
+
 	@NotNull
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false, length = 30)

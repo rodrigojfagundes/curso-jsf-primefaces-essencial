@@ -1,7 +1,5 @@
 package com.algaworks.erp.model;
 
-
-//criando um tipo ENUM... O PROFESSOR NAO EXPLICOU, apenas colou o codigo
 public enum TipoEmpresa {
 	
 	

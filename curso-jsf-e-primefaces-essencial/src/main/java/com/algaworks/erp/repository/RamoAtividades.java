@@ -15,10 +15,9 @@ import com.algaworks.erp.model.RamoAtividade;
 public class RamoAtividades implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-
 	@Inject
 	private EntityManager manager;
-	
+
 	public RamoAtividades() {
 		
 	}

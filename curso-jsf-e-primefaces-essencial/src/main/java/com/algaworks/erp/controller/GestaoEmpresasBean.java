@@ -19,7 +19,7 @@ public class GestaoEmpresasBean implements Serializable {
 		
 	
 	private Empresa empresa = new Empresa();
-	
+
 	@Inject
 	private Empresas empresas;
 	
@@ -27,10 +27,11 @@ public class GestaoEmpresasBean implements Serializable {
 		
 
 	public void todasEmpresas() {
+
 		listaEmpresas = empresas.todas();
-		
 	}
 	
+
 	public List<Empresa> getListaEmpresas() {
 		return listaEmpresas;
 	}

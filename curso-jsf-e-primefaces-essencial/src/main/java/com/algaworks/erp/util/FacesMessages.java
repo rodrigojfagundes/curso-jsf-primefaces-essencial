@@ -13,7 +13,7 @@ public class FacesMessages implements Serializable {
 		facesMessage.setSeverity(severity);
 		FacesContext.getCurrentInstance().addMessage(null, facesMessage);
 	}
-
+	
 	public void info(String msg) {
 		add(msg, FacesMessage.SEVERITY_INFO);
 	}

@@ -16,13 +16,13 @@ public class RamoAtividadeConverter implements Converter {
 		this.listaRamoAtividades = listaRamoAtividades;
 	}
 
-
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
 		if (value == null) {
 			return null;
 		}
 		Long id = Long.valueOf(value);
+
 		for (RamoAtividade ramoAtividade: listaRamoAtividades) {
 			if (id.equals(ramoAtividade.getId())) {
 				return ramoAtividade;

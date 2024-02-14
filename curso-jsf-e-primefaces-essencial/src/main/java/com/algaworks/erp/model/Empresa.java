@@ -40,7 +40,7 @@ public class Empresa implements Serializable {
 	@NotEmpty
 	@Column(name = "razao_social", nullable = false, length = 120)
 	private String razaoSocial;
-	
+
 	@CNPJ
 	@NotNull
 	@Column(nullable = false, length = 18)
@@ -131,7 +131,6 @@ public class Empresa implements Serializable {
 	public void setTipo(TipoEmpresa tipo) {
 		this.tipo = tipo;
 	}
-
 
 	@Override
 	public int hashCode() {

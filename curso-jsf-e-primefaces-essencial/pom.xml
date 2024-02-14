@@ -19,6 +19,13 @@
 	
 	<dependencies>
 	
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.15</version>
+			<scope>compile</scope>
+		</dependency>
+		
 		<!-- Runtime, com.sun.xml.bind module -->
 		<dependency>
 			<groupId>org.glassfish.jaxb</groupId>

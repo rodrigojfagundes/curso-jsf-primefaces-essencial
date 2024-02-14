@@ -25,23 +25,23 @@ import com.algaworks.erp.util.FacesMessages;
 public class GestaoEmpresasBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Inject
 	private Empresas empresas;
-
+	
 	@Inject
 	private FacesMessages messages;
 	
 	@Inject
 	private RamoAtividades ramoAtividades;
-
+	
 	@Inject
 	private CadastroEmpresaService cadastroEmpresaService;
 	
 	private List<Empresa> listaEmpresas;
 	
 	private String termoPesquisa;
-		
+	
 	private Converter ramoAtividadeConverter;
 	
 	private Empresa empresa;
@@ -65,9 +65,9 @@ public class GestaoEmpresasBean implements Serializable {
 		RequestContext.getCurrentInstance().update(Arrays.asList(
 				"frm:empresaDataTable", "frm:messages"));
 	}
-	
+
 	public void excluir() {
-		cadastroEmpresaService.excluir(empresa);
+		cadastroEmpresaService.excluir(empresa);		
 		empresa = null;
 		atualizarRegistros();
 		
@@ -89,7 +89,7 @@ public class GestaoEmpresasBean implements Serializable {
 	}
 
 	public List<RamoAtividade> completarRamoAtividade(String termo) {
-		List<RamoAtividade> listaRamoAtividades = ramoAtividades.pesquisar(termo);
+		List<RamoAtividade> listaRamoAtividades = ramoAtividades.pesquisar(termo);	
 		ramoAtividadeConverter = new RamoAtividadeConverter(listaRamoAtividades);
 		
 		return listaRamoAtividades;
@@ -101,8 +101,8 @@ public class GestaoEmpresasBean implements Serializable {
 		} else {
 			todasEmpresas();
 		}
+		
 	}
-	
 	private boolean jaHouvePesquisa() {
 		return termoPesquisa != null && !"".equals(termoPesquisa);
 		
@@ -112,19 +112,17 @@ public class GestaoEmpresasBean implements Serializable {
 		return listaEmpresas;
 	}
 	
-
 	public String getTermoPesquisa() {
 		return termoPesquisa;
 	}
 	
-
 	public void setTermoPesquisa(String termoPesquisa) {
 		this.termoPesquisa = termoPesquisa;
 	}
-
+	
 	public TipoEmpresa[] getTiposEmpresa() {
+
 		return TipoEmpresa.values();
-		
 	}
 	
 	
@@ -141,6 +139,7 @@ public class GestaoEmpresasBean implements Serializable {
 		this.empresa = empresa;
 	}
 	
+
 	public boolean isEmpresaSeleciona() {
 		return empresa != null && empresa.getId() != null;
 	}

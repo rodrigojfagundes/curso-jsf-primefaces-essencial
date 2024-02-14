@@ -16,14 +16,13 @@ public class RelatorioService {
 	public RelatorioService() {
 		
 	}
-	
-	
+
 	public BigDecimal totalPedidosMesAtual() {
 		return pedidos.totalPedidosMesAtual();
 	}
 
-
 	public void setPedidos(Pedidos pedidos) {
 		this.pedidos = pedidos;
-	}	
+	}
+
 }

@@ -11,6 +11,4 @@ public class Pedidos {
 		return new BigDecimal("100");
 	}
 	
-	
-	
 }

@@ -15,12 +15,12 @@ public class Empresas implements Serializable {
 	
 	@Inject
 	private EntityManager manager;
-	
-	
+
 	public Empresas() {
 		
 	}
 	
+		
 	public Empresas(EntityManager manager) {
 		this.manager = manager;
 		
@@ -32,6 +32,7 @@ public class Empresas implements Serializable {
 		
 	}
 	
+
 	public List<Empresa> todas(){
 		 return manager.createQuery("from Empresa", Empresa.class).getResultList();
 		 
@@ -48,7 +49,7 @@ public class Empresas implements Serializable {
 		return manager.merge(empresa);
 		
 	}
-
+	
 	public void remover(Empresa empresa) {
 		empresa = porId(empresa.getId());
 

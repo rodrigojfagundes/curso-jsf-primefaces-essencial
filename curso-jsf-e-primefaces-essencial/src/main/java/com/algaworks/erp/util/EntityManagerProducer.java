@@ -10,7 +10,7 @@ import javax.persistence.Persistence;
 
 @ApplicationScoped
 public class EntityManagerProducer {
-
+	
 	private EntityManagerFactory factory;
 	
 	
@@ -24,11 +24,8 @@ public class EntityManagerProducer {
 	public EntityManager createEntityManager() {
 		return this.factory.createEntityManager();
 	}
-	
 
 	public void closeEntityManager(@Disposes EntityManager manager) {
 		manager.close();
 	}
-	
-	
 }

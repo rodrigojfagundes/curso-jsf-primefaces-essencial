@@ -22,17 +22,16 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.br.CNPJ;
 
-
 @Entity
 @Table(name = "empresa")
 public class Empresa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	
 	@NotEmpty
 	@Column(name = "nome_fantasia", nullable = false, length = 80)
 	private String nomeFantasia;
@@ -55,7 +54,7 @@ public class Empresa implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "ramo_atividade_id", nullable = false)
 	private RamoAtividade ramoAtividade;
-
+	
 	@NotNull
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false, length = 30)
@@ -120,8 +119,6 @@ public class Empresa implements Serializable {
 	public void setRamoAtividade(RamoAtividade ramoAtividade) {
 		this.ramoAtividade = ramoAtividade;
 	}
-
-	
 	
 	public TipoEmpresa getTipo() {
 		return tipo;
@@ -132,6 +129,11 @@ public class Empresa implements Serializable {
 		this.tipo = tipo;
 	}
 
+	
+	
+	//criando  HASHCODE and EQUALS q serve para verificarmos se os ID sao iguais
+	//ou seja para fazer comparacoes...
+	//
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -161,5 +163,5 @@ public class Empresa implements Serializable {
 	@Override
 	public String toString() {
 		return "Empresa [id=" + id + "]";
-	}	
+	}
 }

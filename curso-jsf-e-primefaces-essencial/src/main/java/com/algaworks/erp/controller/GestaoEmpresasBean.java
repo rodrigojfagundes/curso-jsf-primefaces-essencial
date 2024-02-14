@@ -48,30 +48,41 @@ public class GestaoEmpresasBean implements Serializable {
 	
 	public void prepararNovaEmpresa() {
 		empresa = new Empresa();
+		
 	}
 	
 	public void prepararEdicao() {
 		ramoAtividadeConverter = new RamoAtividadeConverter(Arrays.asList(empresa.getRamoAtividade()));
+		
 	}
 	
 	public void salvar() {
 		cadastroEmpresaService.salvar(empresa);
-		if (jaHouvePesquisa()) {
-			pesquisar();
-		} else {
-			todasEmpresas();
-		}
+		atualizarRegistros();
 		messages.info("Empresa salva com sucesso");
 		RequestContext.getCurrentInstance().update(Arrays.asList(
 				"frm:empresaDataTable", "frm:messages"));
+	}
+
+	public void excluir() {
+		cadastroEmpresaService.excluir(empresa);
+		empresa = null;
+		
+		atualizarRegistros();
+		
+		messages.info("Empresa excluida com sucesso!");
+		
 	}
 	
 	public void pesquisar() {
 		listaEmpresas = empresas.pesquisar(termoPesquisa);
 		if(listaEmpresas.isEmpty()) {
+
 			messages.info("Sua consulta não retornou registros");
 		}
+		
 	}
+	
 	
 	public void todasEmpresas() {
 		listaEmpresas = empresas.todas();
@@ -85,7 +96,24 @@ public class GestaoEmpresasBean implements Serializable {
 		return listaRamoAtividades;
 	}
 
+	private void atualizarRegistros() {
+		if (jaHouvePesquisa()) {
+			pesquisar();
+		} else {
+			todasEmpresas();
+		}
+		
+	}
+	
+	
+	//METODO para verificar SE o USUARIO ja fez alguma pesquisa, SE ele ja tiver feito uma PESQUISA o METODO a baixo
+	//vai refazer a pesquisa
+	//sera UTIL para quando nos formos EDITAR um registro
+	//
 	private boolean jaHouvePesquisa() {
+		//verificando se a VAR TERMOPESQUISA é DIFERENTE de NULL, e se o "" e DIFERENTE de TERMOPESQUISA
+		//SIGNIFICA q ja HOUVE uma PESQUISA
+		//
 		return termoPesquisa != null && !"".equals(termoPesquisa);
 		
 	}
@@ -97,13 +125,14 @@ public class GestaoEmpresasBean implements Serializable {
 	public String getTermoPesquisa() {
 		return termoPesquisa;
 	}
-	
+
 	public void setTermoPesquisa(String termoPesquisa) {
 		this.termoPesquisa = termoPesquisa;
 	}
 	
 	public TipoEmpresa[] getTiposEmpresa() {
 		return TipoEmpresa.values();
+		
 	}
 	
 	

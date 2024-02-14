@@ -17,24 +17,26 @@ public class Empresas implements Serializable {
 	private EntityManager manager;
 	
 	
+	
 	public Empresas() {
 		
 	}
+	
 	
 	
 	public Empresas(EntityManager manager) {
 		this.manager = manager;
 		
 	}
-	
 
 	public Empresa porId(Long id) {
 		return manager.find(Empresa.class, id);
+		
 	}
-	
 	
 	public List<Empresa> todas(){
 		 return manager.createQuery("from Empresa", Empresa.class).getResultList();
+		 
 	}
 	
 	public List<Empresa> pesquisar(String nome){

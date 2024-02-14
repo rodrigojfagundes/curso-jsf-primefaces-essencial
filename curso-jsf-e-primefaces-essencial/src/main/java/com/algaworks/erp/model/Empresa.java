@@ -44,7 +44,7 @@ public class Empresa implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "ramo_atividade_id", nullable = false)
 	private RamoAtividade ramoAtividade;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false, length = 30)
 	private TipoEmpresa tipo;
@@ -52,7 +52,7 @@ public class Empresa implements Serializable {
 	@Column(precision =10, scale = 2)
 	private BigDecimal faturamento;
 	
-
+	
 	public BigDecimal getFaturamento() {
 		return faturamento;
 	}
@@ -133,7 +133,6 @@ public class Empresa implements Serializable {
 		this.tipo = tipo;
 	}
 
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -160,10 +159,6 @@ public class Empresa implements Serializable {
 		return true;
 	}
 
-	
-	//criando o TOSTRING q serve para converter o valor do ID para STRING para
-	//ficar mais facil de visualizar a partir de outra classe/entidade
-	//
 	@Override
 	public String toString() {
 		return "Empresa [id=" + id + "]";

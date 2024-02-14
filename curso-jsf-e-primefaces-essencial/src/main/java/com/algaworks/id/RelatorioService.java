@@ -22,7 +22,6 @@ public class RelatorioService {
 		return pedidos.totalPedidosMesAtual();
 	}
 
-
 	public void setPedidos(Pedidos pedidos) {
 		this.pedidos = pedidos;
 	}	

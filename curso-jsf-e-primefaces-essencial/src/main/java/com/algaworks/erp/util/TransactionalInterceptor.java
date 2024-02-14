@@ -23,9 +23,7 @@ public class TransactionalInterceptor implements Serializable {
 	@AroundInvoke
 	public Object invoke(InvocationContext context) throws Exception {
 		EntityTransaction trx = manager.getTransaction();
-
 		boolean criador = false;
-		
 	try {
 		if (!trx.isActive()) {
 			trx.begin();
@@ -35,6 +33,7 @@ public class TransactionalInterceptor implements Serializable {
 			criador = true;
 		}
 		return context.proceed();
+		
 	} catch (Exception e) {
 		if (trx != null && criador) {
 			trx.rollback();

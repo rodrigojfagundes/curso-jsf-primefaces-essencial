@@ -25,10 +25,10 @@ import com.algaworks.erp.util.FacesMessages;
 public class GestaoEmpresasBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-		
+
 	@Inject
 	private Empresas empresas;
-	
+
 	@Inject
 	private FacesMessages messages;
 	
@@ -49,58 +49,62 @@ public class GestaoEmpresasBean implements Serializable {
 	public void prepararNovaEmpresa() {
 		empresa = new Empresa();
 	}
-	
+
 	public void salvar() {
+		cadastroEmpresaService.salvar(empresa);
 		if (jaHouvePesquisa()) {
 			pesquisar();
 		} else {
 			todasEmpresas();
 		}
 		messages.info("Empresa salva com sucesso");
-		
+
 		RequestContext.getCurrentInstance().update(Arrays.asList(
 				"frm:empresaDataTable", "frm:messages"));
 	}
-	
+		
 	public void pesquisar() {
 		listaEmpresas = empresas.pesquisar(termoPesquisa);
-		
+
 		if(listaEmpresas.isEmpty()) {
 			messages.info("Sua consulta não retornou registros");
 		}
+		
 	}
 	
 	public void todasEmpresas() {
 		listaEmpresas = empresas.todas();
+		
 	}
-	
+
 	public List<RamoAtividade> completarRamoAtividade(String termo) {
 		List<RamoAtividade> listaRamoAtividades = ramoAtividades.pesquisar(termo);
-		
 		ramoAtividadeConverter = new RamoAtividadeConverter(listaRamoAtividades);
 		
 		return listaRamoAtividades;
 	}
 	
 	private boolean jaHouvePesquisa() {
+		
 		return termoPesquisa != null && !"".equals(termoPesquisa);
 		
 	}
-	
+
 	public List<Empresa> getListaEmpresas() {
 		return listaEmpresas;
 	}
 	
+
 	public String getTermoPesquisa() {
 		return termoPesquisa;
 	}
-	
+
 	public void setTermoPesquisa(String termoPesquisa) {
 		this.termoPesquisa = termoPesquisa;
 	}
 	
 	public TipoEmpresa[] getTiposEmpresa() {
-		
+
 		return TipoEmpresa.values();
 	}
 	

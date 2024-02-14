@@ -12,14 +12,16 @@ public class RelatorioService {
 	public RelatorioService(Pedidos pedidos) {
 		this.pedidos = pedidos;
 	}
-
+	
 	public RelatorioService() {
 		
 	}
 	
+	
 	public BigDecimal totalPedidosMesAtual() {
 		return pedidos.totalPedidosMesAtual();
 	}
+
 
 	public void setPedidos(Pedidos pedidos) {
 		this.pedidos = pedidos;

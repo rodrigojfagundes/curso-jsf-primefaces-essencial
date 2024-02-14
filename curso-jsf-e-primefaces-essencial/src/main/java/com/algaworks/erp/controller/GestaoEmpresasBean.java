@@ -28,20 +28,20 @@ public class GestaoEmpresasBean implements Serializable {
 	
 	@Inject
 	private Empresas empresas;
-	
+
 	@Inject
 	private FacesMessages messages;
 	
 	@Inject
 	private RamoAtividades ramoAtividades;
-	
+
 	@Inject
 	private CadastroEmpresaService cadastroEmpresaService;
 	
 	private List<Empresa> listaEmpresas;
 	
 	private String termoPesquisa;
-	
+		
 	private Converter ramoAtividadeConverter;
 	
 	private Empresa empresa;
@@ -51,6 +51,7 @@ public class GestaoEmpresasBean implements Serializable {
 		
 	}
 	
+
 	public void prepararEdicao() {
 		ramoAtividadeConverter = new RamoAtividadeConverter(Arrays.asList(empresa.getRamoAtividade()));
 		
@@ -60,29 +61,27 @@ public class GestaoEmpresasBean implements Serializable {
 		cadastroEmpresaService.salvar(empresa);
 		atualizarRegistros();
 		messages.info("Empresa salva com sucesso");
+
 		RequestContext.getCurrentInstance().update(Arrays.asList(
 				"frm:empresaDataTable", "frm:messages"));
 	}
-
+	
 	public void excluir() {
 		cadastroEmpresaService.excluir(empresa);
 		empresa = null;
-		
 		atualizarRegistros();
 		
 		messages.info("Empresa excluida com sucesso!");
-		
 	}
 	
 	public void pesquisar() {
 		listaEmpresas = empresas.pesquisar(termoPesquisa);
-		if(listaEmpresas.isEmpty()) {
 
+		if(listaEmpresas.isEmpty()) {
 			messages.info("Sua consulta não retornou registros");
 		}
 		
 	}
-	
 	
 	public void todasEmpresas() {
 		listaEmpresas = empresas.todas();
@@ -102,18 +101,9 @@ public class GestaoEmpresasBean implements Serializable {
 		} else {
 			todasEmpresas();
 		}
-		
 	}
 	
-	
-	//METODO para verificar SE o USUARIO ja fez alguma pesquisa, SE ele ja tiver feito uma PESQUISA o METODO a baixo
-	//vai refazer a pesquisa
-	//sera UTIL para quando nos formos EDITAR um registro
-	//
 	private boolean jaHouvePesquisa() {
-		//verificando se a VAR TERMOPESQUISA é DIFERENTE de NULL, e se o "" e DIFERENTE de TERMOPESQUISA
-		//SIGNIFICA q ja HOUVE uma PESQUISA
-		//
 		return termoPesquisa != null && !"".equals(termoPesquisa);
 		
 	}
@@ -122,14 +112,16 @@ public class GestaoEmpresasBean implements Serializable {
 		return listaEmpresas;
 	}
 	
+
 	public String getTermoPesquisa() {
 		return termoPesquisa;
 	}
+	
 
 	public void setTermoPesquisa(String termoPesquisa) {
 		this.termoPesquisa = termoPesquisa;
 	}
-	
+
 	public TipoEmpresa[] getTiposEmpresa() {
 		return TipoEmpresa.values();
 		

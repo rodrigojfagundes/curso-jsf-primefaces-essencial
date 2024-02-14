@@ -26,8 +26,8 @@ public class RamoAtividades implements Serializable {
 	public RamoAtividades(EntityManager manager) {
 		this.manager = manager;
 	}
-	
-	
+
+
 	public List<RamoAtividade> pesquisar (String descricao) {
 		CriteriaBuilder criteriaBuilder = manager.getCriteriaBuilder();
 		CriteriaQuery<RamoAtividade> criteriaQuery = criteriaBuilder.createQuery(RamoAtividade.class);
@@ -35,8 +35,10 @@ public class RamoAtividades implements Serializable {
 		Root<RamoAtividade> root = criteriaQuery.from(RamoAtividade.class);
 		criteriaQuery.select(root);
 		criteriaQuery.where(criteriaBuilder.like(root.get("descricao"), descricao + "%"));
+		
 		TypedQuery<RamoAtividade> query = manager.createQuery(criteriaQuery);
 		
 		return query.getResultList();
+		
 	}
 }

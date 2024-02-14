@@ -17,7 +17,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
 @Entity
 @Table(name = "empresa")
 public class Empresa implements Serializable {
@@ -27,7 +26,7 @@ public class Empresa implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	
 	@Column(name = "nome_fantasia", nullable = false, length = 80)
 	private String nomeFantasia;
 	
@@ -44,14 +43,13 @@ public class Empresa implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "ramo_atividade_id", nullable = false)
 	private RamoAtividade ramoAtividade;
-
+	
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false, length = 30)
 	private TipoEmpresa tipo;
 	
 	@Column(precision =10, scale = 2)
 	private BigDecimal faturamento;
-	
 	
 	public BigDecimal getFaturamento() {
 		return faturamento;
@@ -133,6 +131,7 @@ public class Empresa implements Serializable {
 		this.tipo = tipo;
 	}
 
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -159,6 +158,10 @@ public class Empresa implements Serializable {
 		return true;
 	}
 
+	
+	//criando o TOSTRING q serve para converter o valor do ID para STRING para
+	//ficar mais facil de visualizar a partir de outra classe/entidade
+	//
 	@Override
 	public String toString() {
 		return "Empresa [id=" + id + "]";

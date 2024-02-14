@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "ramo_atividade")
 public class RamoAtividade implements Serializable {
@@ -20,11 +19,11 @@ public class RamoAtividade implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(nullable = false, length = 80)
 	private String descricao;
 
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -58,6 +57,7 @@ public class RamoAtividade implements Serializable {
 		RamoAtividade other = (RamoAtividade) obj;
 		return Objects.equals(id, other.id);
 	}
+
 
 	@Override
 	public String toString() {

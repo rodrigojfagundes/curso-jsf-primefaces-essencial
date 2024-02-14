@@ -16,6 +16,7 @@ import com.algaworks.erp.repository.Empresas;
 public class GestaoEmpresasBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+		
 	
 	private Empresa empresa = new Empresa();
 	
@@ -29,7 +30,7 @@ public class GestaoEmpresasBean implements Serializable {
 		listaEmpresas = empresas.todas();
 		
 	}
-
+	
 	public List<Empresa> getListaEmpresas() {
 		return listaEmpresas;
 	}

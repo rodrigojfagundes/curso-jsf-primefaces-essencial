@@ -26,7 +26,7 @@ public class TransactionalInterceptor implements Serializable {
 		EntityTransaction trx = manager.getTransaction();
 
 		boolean criador = false;
-	
+		
 	try {
 		if (!trx.isActive()) {
 			trx.begin();
@@ -35,6 +35,7 @@ public class TransactionalInterceptor implements Serializable {
 			
 			criador = true;
 		}
+
 		return context.proceed();
 
 	} catch (Exception e) {
@@ -42,7 +43,7 @@ public class TransactionalInterceptor implements Serializable {
 			trx.rollback();
 		}
 		throw e;
-	}
+	} 
 	finally {
 		if (trx != null && trx.isActive() && criador) {
 			trx.commit();

@@ -16,16 +16,19 @@ public class Empresas implements Serializable {
 	@Inject
 	private EntityManager manager;
 	
+	
+	
 	public Empresas() {
 		
 	}
+	
+	
 	
 	public Empresas(EntityManager manager) {
 		this.manager = manager;
 		
 	}
 	
-
 	public Empresa porId(Long id) {
 		return manager.find(Empresa.class, id);
 		
@@ -41,19 +44,17 @@ public class Empresas implements Serializable {
 		query.setParameter("razaoSocial", nome + "%");
 		
 		return query.getResultList();
-		
 	}
 	
-
 	public Empresa guardar(Empresa empresa) {
 		return manager.merge(empresa);
 		
 	}
 	
-	
+
 	public void remover(Empresa empresa) {
 		empresa = porId(empresa.getId());
 		manager.remove(empresa);
 	
-	}
+	}	
 }

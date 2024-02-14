@@ -25,7 +25,7 @@ import com.algaworks.erp.util.FacesMessages;
 public class GestaoEmpresasBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+		
 	@Inject
 	private Empresas empresas;
 	
@@ -48,11 +48,9 @@ public class GestaoEmpresasBean implements Serializable {
 	
 	public void prepararNovaEmpresa() {
 		empresa = new Empresa();
-		
 	}
 	
 	public void salvar() {
-		cadastroEmpresaService.salvar(empresa);
 		if (jaHouvePesquisa()) {
 			pesquisar();
 		} else {
@@ -63,28 +61,25 @@ public class GestaoEmpresasBean implements Serializable {
 		RequestContext.getCurrentInstance().update(Arrays.asList(
 				"frm:empresaDataTable", "frm:messages"));
 	}
-		
+	
 	public void pesquisar() {
 		listaEmpresas = empresas.pesquisar(termoPesquisa);
 		
 		if(listaEmpresas.isEmpty()) {
 			messages.info("Sua consulta não retornou registros");
-			
 		}
 	}
 	
-
 	public void todasEmpresas() {
 		listaEmpresas = empresas.todas();
-		
 	}
 	
 	public List<RamoAtividade> completarRamoAtividade(String termo) {
 		List<RamoAtividade> listaRamoAtividades = ramoAtividades.pesquisar(termo);
+		
 		ramoAtividadeConverter = new RamoAtividadeConverter(listaRamoAtividades);
 		
 		return listaRamoAtividades;
-		
 	}
 	
 	private boolean jaHouvePesquisa() {
@@ -105,8 +100,8 @@ public class GestaoEmpresasBean implements Serializable {
 	}
 	
 	public TipoEmpresa[] getTiposEmpresa() {
-		return TipoEmpresa.values();
 		
+		return TipoEmpresa.values();
 	}
 	
 	

@@ -17,18 +17,22 @@ public class GestaoEmpresasBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 		
+	
 	private Empresa empresa = new Empresa();
 
 	@Inject
 	private Empresas empresas;
 	
+
 	private List<Empresa> listaEmpresas;
-	
+		
+
 	public void todasEmpresas() {
 		listaEmpresas = empresas.todas();
 		
 	}
 	
+
 	public List<Empresa> getListaEmpresas() {
 		return listaEmpresas;
 	}

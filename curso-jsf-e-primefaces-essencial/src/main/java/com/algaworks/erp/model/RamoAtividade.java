@@ -23,6 +23,7 @@ public class RamoAtividade implements Serializable {
 	@Column(nullable = false, length = 80)
 	private String descricao;
 
+
 	public Long getId() {
 		return id;
 	}
@@ -38,7 +39,6 @@ public class RamoAtividade implements Serializable {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
 	
 	@Override
 	public int hashCode() {
@@ -56,6 +56,7 @@ public class RamoAtividade implements Serializable {
 		RamoAtividade other = (RamoAtividade) obj;
 		return Objects.equals(id, other.id);
 	}
+
 
 	@Override
 	public String toString() {

@@ -22,7 +22,6 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.br.CNPJ;
 
-
 @Entity
 @Table(name = "empresa")
 public class Empresa implements Serializable {
@@ -32,11 +31,11 @@ public class Empresa implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotEmpty
 	@Column(name = "nome_fantasia", nullable = false, length = 80)
 	private String nomeFantasia;
-	
+
 	@NotEmpty
 	@Column(name = "razao_social", nullable = false, length = 120)
 	private String razaoSocial;

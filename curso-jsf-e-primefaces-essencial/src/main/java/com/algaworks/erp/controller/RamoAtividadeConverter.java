@@ -15,11 +15,10 @@ public class RamoAtividadeConverter implements Converter {
 	public RamoAtividadeConverter(List<RamoAtividade> listaRamoAtividades) {
 		this.listaRamoAtividades = listaRamoAtividades;
 	}
-	
+
+
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
-		// TODO Auto-generated method stub
-
 		if (value == null) {
 			return null;
 		}
@@ -36,7 +35,6 @@ public class RamoAtividadeConverter implements Converter {
 
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
-
 		if(value == null) {
 			return null;
 		}

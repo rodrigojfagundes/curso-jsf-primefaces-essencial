@@ -25,13 +25,13 @@ import com.algaworks.erp.util.FacesMessages;
 public class GestaoEmpresasBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+		
 	@Inject
 	private Empresas empresas;
 
 	@Inject
 	private FacesMessages messages;
-	
+
 	@Inject
 	private RamoAtividades ramoAtividades;
 	
@@ -62,7 +62,7 @@ public class GestaoEmpresasBean implements Serializable {
 		RequestContext.getCurrentInstance().update(Arrays.asList(
 				"frm:empresaDataTable", "frm:messages"));
 	}
-		
+
 	public void pesquisar() {
 		listaEmpresas = empresas.pesquisar(termoPesquisa);
 
@@ -74,7 +74,6 @@ public class GestaoEmpresasBean implements Serializable {
 	
 	public void todasEmpresas() {
 		listaEmpresas = empresas.todas();
-		
 	}
 
 	public List<RamoAtividade> completarRamoAtividade(String termo) {
@@ -85,27 +84,25 @@ public class GestaoEmpresasBean implements Serializable {
 	}
 	
 	private boolean jaHouvePesquisa() {
-		
 		return termoPesquisa != null && !"".equals(termoPesquisa);
 		
 	}
-
+	
 	public List<Empresa> getListaEmpresas() {
 		return listaEmpresas;
 	}
 	
-
 	public String getTermoPesquisa() {
 		return termoPesquisa;
 	}
-
+	
 	public void setTermoPesquisa(String termoPesquisa) {
 		this.termoPesquisa = termoPesquisa;
 	}
 	
 	public TipoEmpresa[] getTiposEmpresa() {
-
 		return TipoEmpresa.values();
+		
 	}
 	
 	
@@ -118,4 +115,12 @@ public class GestaoEmpresasBean implements Serializable {
 		return empresa;
 	}
 	
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
+	
+	public boolean isEmpresaSeleciona() {
+		return empresa != null && empresa.getId() != null;
+	}
 }
+

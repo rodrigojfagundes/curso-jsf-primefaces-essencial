@@ -17,12 +17,13 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+
 @Entity
 @Table(name = "empresa")
 public class Empresa implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -33,21 +34,17 @@ public class Empresa implements Serializable {
 	@Column(name = "razao_social", nullable = false, length = 120)
 	private String razaoSocial;
 	
-
 	@Column(nullable = false, length = 18)
 	private String cnpj;
-	
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "data_fundacao")
 	private Date dataFundacao;
 	
-	
 	@ManyToOne
 	@JoinColumn(name = "ramo_atividade_id", nullable = false)
 	private RamoAtividade ramoAtividade;
 	
-
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false, length = 30)
 	private TipoEmpresa tipo;
@@ -55,7 +52,7 @@ public class Empresa implements Serializable {
 	@Column(precision =10, scale = 2)
 	private BigDecimal faturamento;
 	
-	
+
 	public BigDecimal getFaturamento() {
 		return faturamento;
 	}
@@ -163,10 +160,9 @@ public class Empresa implements Serializable {
 		return true;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Empresa [id=" + id + "]";
 	}
-	
+
 }

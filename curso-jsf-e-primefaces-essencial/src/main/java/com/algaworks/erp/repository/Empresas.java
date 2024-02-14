@@ -13,7 +13,6 @@ public class Empresas implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-
 	@Inject
 	private EntityManager manager;
 	
@@ -29,20 +28,23 @@ public class Empresas implements Serializable {
 		this.manager = manager;
 		
 	}
-	
-	
+
 	public Empresa porId(Long id) {
 		return manager.find(Empresa.class, id);
+		
 	}
 	
-
+	public List<Empresa> todas(){
+		 return manager.createQuery("from Empresa", Empresa.class).getResultList();
+		 
+	}
+	
 	public List<Empresa> pesquisar(String nome){
 		TypedQuery<Empresa> query = manager.createQuery("from Empresa where nomeFantasia like :nomeFantasia", Empresa.class);
 
 		query.setParameter("nomeFantasia", nome + "%");
 		return query.getResultList();
 	}
-	
 	
 	public Empresa guardar(Empresa empresa) {
 		return manager.merge(empresa);
@@ -52,6 +54,7 @@ public class Empresas implements Serializable {
 
 	public void remover(Empresa empresa) {
 		empresa = porId(empresa.getId());
+
 		manager.remove(empresa);	
 	}
 	

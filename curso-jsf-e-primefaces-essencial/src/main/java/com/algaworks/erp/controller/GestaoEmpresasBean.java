@@ -13,7 +13,7 @@ import com.algaworks.erp.model.TipoEmpresa;
 public class GestaoEmpresasBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private Empresa empresa = new Empresa();
 	
 	public void salvar() {
@@ -21,21 +21,19 @@ public class GestaoEmpresasBean implements Serializable {
 				+ " - Nome fantasia: " + empresa.getNomeFantasia()
 				+ " - Tipo:" + empresa.getTipo());
 	}
-
+	
+	
 	public String ajuda() {
 		return "AjudaGestaoEmpresas?faces-redirect=true";
 	}
-	
 	
 	public Empresa getEmpresa() {
 		return empresa;
 	}
 	
+
 	public TipoEmpresa[] getTipoEmpresas() {
 		return TipoEmpresa.values();
 	}
-	
-	
-	
-	
+
 }

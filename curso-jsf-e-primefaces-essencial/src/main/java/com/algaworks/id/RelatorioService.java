@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 
 import javax.inject.Inject;
 
-
 public class RelatorioService {
 	
 	@Inject
@@ -14,12 +13,10 @@ public class RelatorioService {
 		this.pedidos = pedidos;
 	}
 	
-
 	public RelatorioService() {
 		
 	}
 	
-
 	public BigDecimal totalPedidosMesAtual() {
 		return pedidos.totalPedidosMesAtual();
 	}
@@ -28,10 +25,5 @@ public class RelatorioService {
 	public void setPedidos(Pedidos pedidos) {
 		this.pedidos = pedidos;
 	}
-	
-	
-	
-	
-	
 	
 }
